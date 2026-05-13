@@ -1,0 +1,13 @@
+{
+  "Parameters": {
+    "DYNAMODB_ENDPOINT": "http://dynamodb-local:8000",
+    "SQS_ENDPOINT": "http://elasticmq:9324",
+    "S3_ENDPOINT": "http://minio:9000",
+    "AWS_ACCESS_KEY_ID": "test",
+    "AWS_SECRET_ACCESS_KEY": "test",
+    "AWS_SESSION_TOKEN": "",
+    "AWS_DEFAULT_REGION": "ap-northeast-1",
+    "USERS_TABLE": "Users",
+    "QUEUE_URL": "http://elasticmq:9324/000000000000/user-events-queue"
+  }
+}

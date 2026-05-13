@@ -1,0 +1,9 @@
+{
+  "httpMethod": "POST",
+  "path": "/users",
+  "pathParameters": null,
+  "headers": { "Content-Type": "application/json" },
+  "body": "{\"name\": \"Taro\", \"email\": \"taro@example.com\"}",
+  "isBase64Encoded": false,
+  "requestContext": { "httpMethod": "POST", "path": "/users", "resourcePath": "/users" }
+}

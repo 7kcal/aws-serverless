@@ -1,0 +1,9 @@
+{
+  "httpMethod": "GET",
+  "path": "/users/u001",
+  "pathParameters": { "id": "u001" },
+  "headers": { "Content-Type": "application/json" },
+  "body": null,
+  "isBase64Encoded": false,
+  "requestContext": { "httpMethod": "GET", "path": "/users/u001", "resourcePath": "/users/{id}" }
+}
