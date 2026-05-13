@@ -36,21 +36,21 @@ make local
 
 ## 開発フロー
 ### 作業開始
-- make up                   # コンテナ起動（2回目以降は make start でも可）
-- make shell                # 開発コンテナに入る
-- make local                # API 起動 (http://localhost:3000)
+- `make up` コンテナ起動（2回目以降は make start でも可）
+- `make shell` 開発コンテナに入る
+- `make local` API 起動 (http://localhost:3000)
 
 ### コード修正後
-- Ctrl+C                    # sam local 停止
-- make local                # 再ビルド＆再起動
+- `Ctrl+C` sam local 停止
+- `make local` 再ビルド＆再起動
 
 ### テスト
-- make test                 # 全テスト
-- make test-unit            # Unit テストのみ
+- `make test` 全テスト
+- `make test-unit` Unit テストのみ
 
 ### 作業終了
-- exit                      # コンテナから出る
-- make down                 # 停止（データ保持）
+- `exit` コンテナから出る
+- `make down` 停止（データ保持）
 
 ## API 仕様
 ### POST /users - ユーザー作成
