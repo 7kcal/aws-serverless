@@ -27,10 +27,10 @@ services:
     image: amazon/dynamodb-local:latest
     ports:
       - "8000:8000"
-    # -dbPath でファイル永続化
+    user: root
     command: ["-jar", "DynamoDBLocal.jar", "-sharedDb", "-dbPath", "/data"]
     volumes:
-      - dynamodb_data:/data      # ★ 名前付きボリューム
+      - dynamodb_data:/data
     networks:
       - serverless-net
     healthcheck:
@@ -70,7 +70,7 @@ services:
       - MINIO_ROOT_PASSWORD=minioadmin
     command: server /data --console-address ":9001"
     volumes:
-      - minio_data:/data         # ★ 名前付きボリューム
+      - minio_data:/data
     networks:
       - serverless-net
 
@@ -120,9 +120,6 @@ services:
     networks:
       - serverless-net
 
-# ============================================
-# ★ 名前付きボリューム定義
-# ============================================
 volumes:
   dynamodb_data:
     name: serverless-dynamodb-data
