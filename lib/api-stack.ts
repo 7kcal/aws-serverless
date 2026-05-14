@@ -55,7 +55,18 @@ export class ApiStack extends cdk.Stack {
         SQS_ENDPOINT: ''
       },
     });
+
+    const updateUserFn = new NodejsFunction(this, 'UpdateUserFunction', {
+      ...commonLambdaProps,
+      entry: path.join(__dirname, '../src/handlers/update-user.ts'),
+      handler: 'handler',
+      environment: {
+        USERS_TABLE: usersTable.tableName,
+        DYNAMODB_ENDPOINT: '',
+      },
+    });
     usersTable.grantWriteData(createUserFn);
+    usersTable.grantWriteData(updateUserFn);
     userEventsQueue.grantSendMessages(createUserFn);
 
     const api = new apigw.RestApi(this, 'MyApi', {
@@ -67,6 +78,7 @@ export class ApiStack extends cdk.Stack {
     users.addMethod('POST', new apigw.LambdaIntegration(createUserFn));
     const user = users.addResource('{id}');
     user.addMethod('GET', new apigw.LambdaIntegration(getUserFn));
+    user.addMethod('PUT', new apigw.LambdaIntegration(updateUserFn));
 
     new cdk.CfnOutput(this, 'ApiUrl', { value: api.url });
     new cdk.CfnOutput(this, 'TableName', { value: usersTable.tableName });

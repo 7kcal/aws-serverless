@@ -89,6 +89,15 @@ invoke-create: build-sam ## CreateUser Lambda 単体実行
 	  --container-host host.docker.internal \
 	  --container-host-interface 0.0.0.0
 
+invoke-update: build-sam ## UpdateUser Lambda を単体実行
+	sam local invoke UpdateUserFunction \
+	  -t $(TEMPLATE) \
+	  --event tests/events/update-user.json \
+	  --env-vars env/local.json \
+	  --docker-network $(NETWORK) \
+	  --container-host host.docker.internal \
+	  --container-host-interface 0.0.0.0
+
 test: ## 全テスト
 	npx jest --verbose
 

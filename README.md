@@ -71,6 +71,25 @@ curl -s -X POST http://localhost:3000/users \
 }
 ```
 
+### POST /users - ユーザー更新
+- リクエスト
+```bash
+curl -s -X PUT http://localhost:3000/users/{userId} \
+  -H 'Content-Type: application/json' \
+  -d '{"name": "Taro Yamada", "email": "taro-new@example.com"}' | jq .
+```
+
+- レスポンス (200):
+```json
+{
+  "userId": "550e8400-e29b-41d4-a716-446655440000",
+  "name": "Taro Yamada Updated",
+  "email": "taro@example.com",
+  "createdAt": "2026-05-13T07:15:09.888Z",
+  "updatedAt": "2026-05-13T08:30:00.123Z"
+}
+```
+
 ### GET /users/{id} - ユーザー取得
 - リクエスト
 ```bash

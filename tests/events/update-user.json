@@ -1,0 +1,17 @@
+{
+  "httpMethod": "PUT",
+  "path": "/users/u001",
+  "pathParameters": {
+    "id": "u001"
+  },
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": "{\"name\": \"Taro Yamada Updated\", \"email\": \"taro-new@example.com\"}",
+  "isBase64Encoded": false,
+  "requestContext": {
+    "httpMethod": "PUT",
+    "path": "/users/u001",
+    "resourcePath": "/users/{id}"
+  }
+}
